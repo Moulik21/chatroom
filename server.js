@@ -1,8 +1,8 @@
 var mongo = require('mongodb').MongoClient,
    client = require('socket.io').listen(8080).sockets,
-   url = process.env.MONGOLAB_URL;
+   dburi = process.env.MONGOLAB_URI;
 
-mongo.connect(url, function(err,db){
+mongo.connect(dburi, function(err,db){
   if(err) throw err;
 
   client.on('connection', function(socket){
