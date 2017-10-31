@@ -1,0 +1,24 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "chatroom in node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moulik21/chatroom.git"
+  },
+  "author": "Moulik Gaglani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moulik21/chatroom/issues"
+  },
+  "homepage": "https://github.com/Moulik21/chatroom#readme",
+  "dependencies": {
+    "mongodb": "^2.2.33",
+    "socket.io": "^2.0.4"
+  }
+}
