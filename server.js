@@ -1,11 +1,20 @@
 var mongo = require('mongodb').MongoClient,
-   client = require('socket.io').listen(8080).sockets,
-   dburi = process.env.MONGOLAB_URI;
+   //client = require('socket.io').listen(8080).sockets,
+   dburi = process.env.MONGOLAB_URI,
+   express = require('express'),
+   app = express(),
+   server = require('http').createServer(app),
+   io = require('socket.io').listen(server);
+   server.listen(process.env.PORT || 8080);
 
 mongo.connect(dburi, function(err,db){
   if(err) throw err;
 
-  client.on('connection', function(socket){
+  app.get('/', function (req, res) {
+    res.sendfile(__dirname + 'public/index.html');
+  });
+
+  io.sockets.on('connection', function(socket){
 
     //console.log('Somebody has connected');
     var col = db.collection('messages'),//collection
