@@ -6,5 +6,5 @@ Server sends back status to the sender and updates the chat room.
 
 ## Built Using
 
-Node.js server
-MongoDB to store messages
+Node.js server.
+MongoDB to store messages.
