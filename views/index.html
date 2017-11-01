@@ -42,7 +42,7 @@
 
 
         try {
-          var socket = io.connect(window.location.href);
+          var socket = io(window.location.href);
         } catch (e) {
           //Set status to warn user
         }
