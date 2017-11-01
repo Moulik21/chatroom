@@ -1,11 +1,19 @@
-var mongo = require('mongodb').MongoClient,
-   //client = require('socket.io').listen(8080).sockets,
-   dburi = process.env.MONGOLAB_URI,
-   express = require('express'),
-   app = express();
-   app.set('view engine', 'ejs');
-   server = require('http').createServer(app),
-   io = require('socket.io').listen(server);
+var mongo   = require('mongodb').MongoClient,
+     http   = require('http'),
+    express = require('express'),
+       io   = require('socket.io'),
+     path   = require('path');
+
+   var dburi = process.env.MONGOLAB_URI,
+         app = express(),
+         server = http.createServer(app),
+         client = io.listen(server);
+
+   app.set('view engine', 'ejs'),
+   app.engine('.html', require('ejs').__express),
+   app.set('views', __dirname + '/views'),
+   app.set('view engine', 'html'),
+   app.use(express.static(path.join(__dirname, 'public'))),
    server.listen(process.env.PORT || 8080);
 
 
@@ -13,21 +21,21 @@ mongo.connect(dburi, function(err,db){
   if(err) throw err;
 
   app.get('/', function (req, res) {
-    res.render('pages/index');
+    res.render('index');
     //res.sendFile(__dirname + '/public/index.html');
     //console.log(__dirname);
   });
 
-  io.sockets.on('connection', function(socket){
+  client.sockets.on('connection', function(socket){
 
     //console.log('Somebody has connected');
     var col = db.collection('messages'),//collection
         sendStatus = function(s){
           socket.emit('status',s);
         };
-
+    var totalMessages = 0;
     //Emit all the messages (with some limit) to the client whent they first connect
-    col.find().limit(7).sort({_id: 1}).toArray(function(err, result) {
+   col.find().sort({_id: -1}).limit(7)﻿.toArray(function(err, result) {
       if(err) throw err;
 
       socket.emit('output', result);
@@ -48,7 +56,7 @@ mongo.connect(dburi, function(err,db){
       } else {
         col.insert({name: name, message: message}, function(){
           //Emit latest message to all clients
-          io.emit('output', [data]);
+          client.emit('output', [data]);
           sendStatus({
             message: "Message Sent",
             clear: true
