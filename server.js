@@ -17,10 +17,10 @@ var mongo   = require('mongodb').MongoClient,
    server.listen(process.env.PORT || 8080);
 
    // assuming io is the Socket.IO server object
-   io.configure(function () {
-     io.set("transports", ["xhr-polling"]);
-     io.set("polling duration", 10);
-   });
+   // io.configure(function () {
+   //   io.set("transports", ["xhr-polling"]);
+   //   io.set("polling duration", 10);
+   // });
 
 mongo.connect(dburi, function(err,db){
   if(err) throw err;
