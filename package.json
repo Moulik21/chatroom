@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Moulik21/chatroom#readme",
   "dependencies": {
+    "ejs": "^1.0.0",
     "express": "^4.16.2",
     "http": "0.0.0",
     "mongodb": "^2.2.33",
