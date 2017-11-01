@@ -11,7 +11,7 @@ mongo.connect(dburi, function(err,db){
   if(err) throw err;
 
   app.get('/', function (req, res) {
-    res.sendfile(__dirname + 'public/index.html');
+    res.sendfile(__dirname + '/public/index.html');
   });
 
   io.sockets.on('connection', function(socket){
