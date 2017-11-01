@@ -11,8 +11,8 @@ mongo.connect(dburi, function(err,db){
   if(err) throw err;
 
   app.get('/', function (req, res) {
-    //res.sendfile(__dirname + '/public/index.html');
-    console.log(__dirname);
+    res.sendFile(__dirname + '/public/index.html');
+    //console.log(__dirname);
   });
 
   io.sockets.on('connection', function(socket){
@@ -45,7 +45,7 @@ mongo.connect(dburi, function(err,db){
       } else {
         col.insert({name: name, message: message}, function(){
           //Emit latest message to all clients
-          client.emit('output', [data]);
+          io.emit('output', [data]);
           sendStatus({
             message: "Message Sent",
             clear: true
