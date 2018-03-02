@@ -7,6 +7,7 @@
 ## Built Using
 
 * Node.js server.
-* MongoDB to store messages.
+* mLab to host MongoDB to store messages.
+* Deployed app to IBM Bluemix cloud platform.
 
-https://chatroom-119768.herokuapp.com/
+https://mg-chatroom.mybluemix.net/
