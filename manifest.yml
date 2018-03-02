@@ -1,0 +1,16 @@
+applications:
+# the URL for the application will be .
+# in this example, that's change_this_to_something_unique.ng.bluemix.net
+# !! YOU MUST CHANGE host TO SOMETHING UNIQUE !!
+- host: mg-chatroom
+domain: mybluemix.net
+# the name of the application that you will see if you type 'cf apps'
+name: ChatroomApp
+# the files to 'push' are in the current directory
+path: .
+# bluemix runs this command to initiate the application
+command: node server.js
+# tell bluemix to create 1 server instance
+instances: 1
+memory: 1024M
+dis_quota: 1GB

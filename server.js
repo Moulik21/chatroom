@@ -4,7 +4,7 @@ var mongo   = require('mongodb').MongoClient,
        io   = require('socket.io'),
      path   = require('path');
 
-   var dburi = process.env.MONGOLAB_URI,
+   var dburi = process.env.DATABASE_URL,
          app = express(),
          server = http.createServer(app),
          client = io.listen(server);
@@ -14,7 +14,7 @@ var mongo   = require('mongodb').MongoClient,
    app.set('views', __dirname + '/views'),
    app.set('view engine', 'html'),
    app.use(express.static(path.join(__dirname, 'public'))),
-   server.listen(process.env.PORT || 8080);
+   server.listen(process.env.PORT || 3000);
 
    // assuming io is the Socket.IO server object
    // io.configure(function () {
