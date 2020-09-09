@@ -42,7 +42,8 @@
 
 
         try {
-          var socket = io(window.location.href);
+          var origin = window.location.origin;
+          var socket = io.connect(origin);
         } catch (e) {
           setStatus(e.message);
         }
