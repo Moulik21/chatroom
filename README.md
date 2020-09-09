@@ -8,6 +8,6 @@
 
 * Node.js server.
 * mLab to host MongoDB database to store messages.
-* Deployed app on IBM Bluemix cloud platform.
+* Deployed app on Heroku cloud platform.
 
-https://mg-chatroom.mybluemix.net/
+
