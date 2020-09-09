@@ -22,8 +22,9 @@ var mongo   = require('mongodb').MongoClient,
    //   io.set("polling duration", 10);
    // });
 
-mongo.connect(dburi, function(err,db){
+mongo.connect(dburi, function(err,dbclient){
   if(err) throw err;
+  const db = client.db('chat');
 
   app.get('/', function (req, res) {
     res.render('index');
