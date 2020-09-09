@@ -24,7 +24,7 @@ var mongo   = require('mongodb').MongoClient,
 
 mongo.connect(dburi, function(err,dbclient){
   if(err) throw err;
-  const db = client.db('chat');
+  const db = dbclient.db('chat');
 
   app.get('/', function (req, res) {
     res.render('index');
