@@ -7,7 +7,7 @@
 ## Built Using
 
 * Node.js server.
-* mLab to host MongoDB database to store messages.
+* MongoDB Atlas to host MongoDB database to store messages.
 * Deployed app on Heroku cloud platform.
 
 https://mg-chatroom.herokuapp.com/
