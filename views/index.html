@@ -57,7 +57,7 @@
                 var message = document.createElement('div');
 
                 message.setAttribute('class', 'chat-message');
-                message.textContent = data[i].name + ': ' + data[i].message;
+                message.textContent = data[data.length - i - 1].name + ': ' + data[data.length - i - 1].message;
 
                 //append
                 messages.insertBefore(message, messages.firstChild);
