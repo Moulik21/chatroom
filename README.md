@@ -10,4 +10,4 @@
 * mLab to host MongoDB database to store messages.
 * Deployed app on Heroku cloud platform.
 
-https://chatroom-2.herokuapp.com/
+https://mg-chatroom.herokuapp.com/
